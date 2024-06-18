@@ -1,0 +1,124 @@
+﻿<Page x:Class="TriviaClient.GameScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TriviaClient"
+      mc:Ignorable="d" 
+      Unloaded="Page_Unloaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GameScreen">
+
+    <Page.Resources>
+        <!-- Custom style to maintain border and background colors when button is disabled -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <!-- Keep the background color but make it slightly transparent -->
+                                <Setter TargetName="border" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"/>
+                                <Setter TargetName="border" Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="2100" Height="1100">
+            <Border CornerRadius="12">
+                <Border CornerRadius="10,10,10,10" BorderThickness="5" Opacity="0.95" BorderBrush="Black">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FF00243A" Offset="1"/>
+                            <GradientStop Color="#FFB6D0E0" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid x:Name="questionDetails">
+                        <TextBlock x:Name="questionNum" TextWrapping="Wrap" Text="question number: " FontSize="35" FontFamily="Imprint MT Shadow" AutomationProperties.Name="questionNum" Height="55" Margin="41,216,1678,819"/>
+                        <TextBlock x:Name="questionsLeft" TextWrapping="Wrap" Text="questions left: " FontSize="35" FontFamily="Imprint MT Shadow" AutomationProperties.Name="questionsLeft" Height="55" Margin="41,260,1777,775" Width="300"/>
+                        <Viewbox Margin="5,53,5,0" VerticalAlignment="Top">
+                            <TextBlock x:Name="question" TextWrapping="Wrap" Text="" FontSize="40" TextAlignment="Center" FontFamily="Imprint MT Shadow" AutomationProperties.Name="question" Height="45">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF00243A" Opacity="0.5"/>
+                                </TextBlock.Background>
+                                <Run Text="What is your age?"/>
+                                <LineBreak/>
+                                <Run/>
+                            </TextBlock>
+                        </Viewbox>
+
+                        <Grid Margin="290,522,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1500">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="18"/>
+                                <RowDefinition Height="3"/>
+                                <RowDefinition Height="19"/>
+                                <RowDefinition Height="220"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="1"/>
+                                <ColumnDefinition Width="39"/>
+                                <ColumnDefinition Width="370"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="answer1" Style="{StaticResource CustomButtonStyle}" Grid.Row="0" Grid.Column="0" Width="600" Height="150" FontSize="30" FontFamily="Comic Sans MS" AutomationProperties.Name="answer1" Click="answer1_Click" Margin="10,10,100,10" BorderThickness="5,5,5,5">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#FF00243A" Opacity="0.5"/>
+                                </Button.Background>
+                                <TextBlock Text="Answer 1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="40"/>
+                            </Button>
+
+                            <Button x:Name="answer2" Style="{StaticResource CustomButtonStyle}" Grid.Row="0" Grid.Column="3" Width="600" Height="150" FontSize="30" FontFamily="Comic Sans MS" AutomationProperties.Name="answer2" Click="answer2_Click" Margin="60,10,-290,10" BorderThickness="5,5,5,5">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#FF00243A" Opacity="0.5"/>
+                                </Button.Background>
+                                <TextBlock Text="Answer 2" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="40"/>
+                            </Button>
+
+                            <Button x:Name="answer3" Style="{StaticResource CustomButtonStyle}" Grid.Row="4" Grid.Column="0" Width="600" Height="150" FontSize="30" FontFamily="Comic Sans MS" AutomationProperties.Name="answer3" Click="answer3_Click" Margin="10,60,100,10" BorderThickness="5,5,5,5">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#FF00243A" Opacity="0.5"/>
+                                </Button.Background>
+                                <TextBlock Text="Answer 3" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="40"/>
+                            </Button>
+
+                            <Button x:Name="answer4" Style="{StaticResource CustomButtonStyle}" Grid.Row="4" Grid.Column="3" Width="600" Height="150" FontSize="30" FontFamily="Comic Sans MS" AutomationProperties.Name="answer4" Click="answer4_Click" Margin="60,60,-290,10" BorderThickness="5,5,5,5">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#FF00243A" Opacity="0.5"/>
+                                </Button.Background>
+                                <TextBlock Text="Answer 4" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="40"/>
+                            </Button>
+
+                        </Grid>
+
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                            <Ellipse Fill="White" Margin="-100,-140,-12,30"/>
+                            <TextBlock x:Name="Timer" Text="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" Foreground="Black" Margin="-66,-113,0,0" RenderTransformOrigin="0.258,-2.49" AutomationProperties.Name ="Timer" Width="43" FontWeight="Bold" TextAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Page>

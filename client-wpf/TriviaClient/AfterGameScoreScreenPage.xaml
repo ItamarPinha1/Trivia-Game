@@ -1,0 +1,267 @@
+﻿<Page x:Class="TriviaClient.AfterGameScoreScreenPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TriviaClient"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AfterGameScoreScreenPage">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="2100" Height="1100">
+            <Border CornerRadius="12">
+                <Border CornerRadius="10" BorderThickness="5" Opacity="0.95" BorderBrush="Black" Margin="-26,-19,-24,-14">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FF00243A" Offset="1"/>
+                            <GradientStop Color="#FFB6D0E0" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid Margin="20">
+                        <TextBlock x:Name="headLine" Text="Score Screen" FontSize="100" FontWeight="Bold" Margin="0,20,0,50" TextAlignment="Center" FontFamily="ROG Fonts" Foreground="#FF000A13" FontStyle="Italic" Height="200" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                        <Grid x:Name="scoreTable" ShowGridLines="True" Width="1700" Height="720" Margin="0,50,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Background>
+                                <SolidColorBrush Color="#FF010B13" Opacity="0.2"/>
+                            </Grid.Background>
+
+                            <!-- Headers -->
+                            <TextBlock Text="Rank:" FontSize="50" Height="80" FontFamily="Impact" TextAlignment="Center" TextWrapping="Wrap" Grid.Column="0" Grid.Row="0">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <TextBlock Text="Player Name:" FontSize="50" Height="80" FontFamily="Impact" TextAlignment="Center" TextWrapping="Wrap" Grid.Column="1" Grid.Row="0">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <TextBlock Text="Correct Answers:" FontSize="50" Height="80" FontFamily="Impact" TextAlignment="Center" TextWrapping="Wrap" Grid.Column="2" Grid.Row="0">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <TextBlock Text="Time Per Answer:" FontSize="50" Height="80" FontFamily="Impact" TextAlignment="Center" TextWrapping="Wrap" Grid.Column="3" Grid.Row="0">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+
+                            <!-- Player 1 -->
+                            <TextBlock x:Name="player1Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="1" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player1Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="1" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player1CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="1" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player1TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="1" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 2 -->
+                            <TextBlock x:Name="player2Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="2" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player2Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="2" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player2CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="2" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player2TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="2" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 3 -->
+                            <TextBlock x:Name="player3Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="3" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player3Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="3" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player3CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="3" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player3TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="3" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 4 -->
+                            <TextBlock x:Name="player4Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="4" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player4Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="4" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player4CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="4" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player4TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="4" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 5 -->
+                            <TextBlock x:Name="player5Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="5" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player5Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="5" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player5CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="5" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player5TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="5" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 6 -->
+                            <TextBlock x:Name="player6Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="6" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player6Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="6" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player6CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="6" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player6TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="6" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 7 -->
+                            <TextBlock x:Name="player7Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="7" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player7Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="7" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player7CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="7" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player7TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="7" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+
+                            <!-- Player 8 -->
+                            <TextBlock x:Name="player8Rank" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="0" Grid.Row="8" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player8Name" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="1" Grid.Row="8" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player8CorrectAnswers" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="2" Grid.Row="8" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <TextBlock x:Name="player8TimePerAnswer" FontSize="30" TextAlignment="Center" FontFamily="Impact" Height="70" Grid.Column="3" Grid.Row="8" Margin="5">
+                                <TextBlock.Background>
+                                    <SolidColorBrush Color="#FF84A0B0" Opacity="0.3"/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                        </Grid>
+
+                        <Button Content="Leave Game" Margin="20,0,20,30" VerticalAlignment="Bottom" Click="Button_Click" Padding="15" FontWeight="Bold" Style="{DynamicResource RoundButton}" Background="#FF00243A" Foreground="White" FontSize="40" Width="700" Height="80"/>
+                    </Grid>
+                </Border>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Page>
+

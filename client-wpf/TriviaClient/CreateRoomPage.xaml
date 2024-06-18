@@ -1,0 +1,110 @@
+﻿<Page x:Class="TriviaClient.CreateRoomPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TriviaClient"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreateRoomPage">
+
+    <Page.Resources>
+        <Style TargetType="Slider">
+            <Setter Property="Foreground" Value="{x:Null}" />
+            <Setter Property="Background" Value="#FF002B46" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="10" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Margin" Value="0,0,0,20" />
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Slider">
+                        <Grid>
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" />
+                            <Track Name="PART_Track" Margin="{TemplateBinding Padding}">
+                                <Track.Thumb>
+                                    <Thumb>
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Ellipse Fill="{TemplateBinding Foreground}" Width="10" Height="10" />
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Border CornerRadius="12" >
+            <Border CornerRadius="10"
+                        BorderThickness="2"
+                        Opacity="0.95">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00BFFF" Offset="0" />
+                        <GradientStop Color="#87CEFA" Offset="0.75" />
+                        <GradientStop Color="#ADD8E6" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="#E0FFFF" Offset="0" />
+                        <GradientStop Color="#FF163F65" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <TextBlock Text="Create Room" FontSize="50" Foreground="#FF000A13" FontFamily="ROG Fonts" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0" />
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                        <TextBlock Text="Room Name:" />
+                        <TextBox x:Name="RoomNameTextBox" FontSize="18" Margin="0,5"/>
+
+                        <TextBlock Text="Number of Players:" Margin="0,3,0,0" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,100,0" Height="39">
+                            <Slider x:Name="NumPlayersSlider" Minimum="2" Maximum="8" Value="4" IsSnapToTickEnabled="True" TickFrequency="1" Width="200" Height="27" />
+                            <TextBlock x:Name="NumPlayersTextBlock" Text="{Binding Value, ElementName=NumPlayersSlider, StringFormat=N0}" Margin="10,0,0,20" VerticalAlignment="Center" FontSize="20" Foreground="White" />
+                        </StackPanel>
+
+                        <TextBlock Text="Number of Questions:" Margin="0,3,0,0" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,100,0">
+                            <Slider x:Name="NumQuestionsSlider" Minimum="10" Maximum="50" Value="20" IsSnapToTickEnabled="True" TickFrequency="5" Width="200" Height="27" />
+                            <TextBlock x:Name="NumQuestionsTextBlock" Text="{Binding Value, ElementName=NumQuestionsSlider, StringFormat=N0}" Margin="10,0,0,20" VerticalAlignment="Center" FontSize="20" Foreground="White" />
+                        </StackPanel>
+
+                        <TextBlock Text="Time for Question (seconds):" Margin="0,3,0,0" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,100,0">
+                            <Slider x:Name="QuestionTimeSlider" Minimum="5" Maximum="60" Value="30" IsSnapToTickEnabled="True" TickFrequency="5" Width="200" Height="27" />
+                            <TextBlock x:Name="QuestionTimeTextBlock" Text="{Binding Value, ElementName=QuestionTimeSlider, StringFormat=N0}" Margin="10,0,0,20" VerticalAlignment="Center" FontSize="20" Foreground="White" />
+                        </StackPanel>
+                        <Button x:Name="CreateRoomButton" Content="Create Room" Click="CreateRoomButton_Click" Padding="15" Width="126" Height="49" FontWeight="Bold" Style="{DynamicResource RoundButton}" Background="#FF00243A" Foreground="White"/>
+
+                       <TextBlock x:Name="ErrorMessage" Height="30" Foreground="Red" FontWeight="Bold" TextAlignment="Center" Margin="0,5,0,0"/>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
+
+        <Button Click="ReturnButton_Click" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top" 
+        Margin="10,10,0,0" Height="62" Width="79" BorderThickness="0" Background="Transparent">
+            <Image Source="/Images/returnBTN.png" Stretch="Uniform"/>
+        </Button>
+
+    </Grid>
+</Page>

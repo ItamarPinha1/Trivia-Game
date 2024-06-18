@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Icon.jpg" />
+    <None Remove="Images\Login\key-icon.png" />
+    <None Remove="Images\Login\user-icon.png" />
+    <None Remove="Images\newicon.png" />
+    <None Remove="Images\returnBTN.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Login\key-icon.png" />
+    <Resource Include="Images\Login\user-icon.png" />
+    <Resource Include="Images\returnBTN.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="JoinRoomPage .xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="PersonalStatisticsPage.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
+</Project>
